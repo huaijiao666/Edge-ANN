@@ -11,7 +11,7 @@ else:
 	device = torch.device("cpu")  # 使用 CPU
 
 
-class Edge_ANNoy:
+class Edge_ANN:
 	def __init__(self,
 				 num_of_level_value,
 				 All_tensor,
@@ -22,7 +22,7 @@ class Edge_ANNoy:
 		self.tensor_cpu = All_tensor  # 数据存储在 CPU
 		self.root = Node(data_ids)
 		self.dis_space = dis_space
-		# self.progress_bar = tqdm(total=len(data_ids), desc='Building Edge-ANNoy', unit='vec')  # 新增进度条
+		# self.progress_bar = tqdm(total=len(data_ids), desc='Building Edge-ANN', unit='vec')  # 新增进度条
 		self.test = 0
 		print(device)
 

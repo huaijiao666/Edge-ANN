@@ -2,7 +2,7 @@ from pyexpat import model
 import torch
 from tqdm import tqdm
 import time
-from Edge_ANNoy import Edge_ANNoy
+from Edge_ANN import Edge_ANN
 import numpy as np
 import h5py
 
@@ -32,14 +32,14 @@ if __name__ == "__main__":
             num_push_down_values = [100]  # 参数范围
             # 批量实验
             for idx, num_push_down in enumerate(num_push_down_values):
-                progress_bar = tqdm(total=100, desc='Building Edge-ANNoy', unit='vec')  # 新增进度条
+                progress_bar = tqdm(total=100, desc='Building Edge-ANN', unit='vec')  # 新增进度条
                 print(f"\n开始实验: num_push_down={num_push_down}")
                 with open(f'./{model_name_}/node{num_push_down}.txt', 'w') as f1, \
                     open(f'./{model_name_}/id{num_push_down}.txt', 'w') as f2:
                     pass
                 start_time = time.time()
                 for i in range(100):
-                    t = Edge_ANNoy(num_push_down, dataset, np.arange(tensor_num))
+                    t = Edge_ANN(num_push_down, dataset, np.arange(tensor_num))
                     # 带时间统计的构建
                     t.build()
                     t.store_model(t.root, node_file=f'./{model_name_}/node{num_push_down}.txt', 
